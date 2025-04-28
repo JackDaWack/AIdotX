@@ -56,7 +56,10 @@ class ai_player
 
     //ai marks a spot on the gameboard as an 'X'.
     void move_to();
-    //ai considers its options.
+    //ai considers its options. 
+    //The ai will consider the options it has for its next move compared to the player's.
+    //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
+    //The ai will pick one of the spaces that both the player and itself could move to.
     void think();
     void determine_candidates();
     void get_players_options();

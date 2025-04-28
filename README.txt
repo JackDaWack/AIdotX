@@ -21,6 +21,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Implemented game_board class getters and setters.
 -Implemented victory checker methods for game_board class.
 -Added empty methods to ai class for later implementation.
+-Developed plan for how the ai will function and act.
 
 4/26/2025
 -Established GitHub repo.
