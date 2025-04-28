@@ -7,6 +7,8 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Implemented user_login.html.
 -Implemented register_new_user.html.
 -Added AI.cpp file for later implementation of AI player.
+-Added user registry and login implementations.
+-Added user loading and logout implementations.
 
 4/26/2025
 -Established GitHub repo.
