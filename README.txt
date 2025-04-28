@@ -10,6 +10,8 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Added user registry and login implementations.
 -Added user loading and logout implementations.
 -Made attempt at gameboard implementation.
+-Implemented gameboard initialization.
+-Added gameboard victory checker methods for later implementation.
 
 4/26/2025
 -Established GitHub repo.
