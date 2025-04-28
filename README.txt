@@ -3,6 +3,9 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 
 4/28/2025
 -Implemented base file.
+-Implemented db.py.
+-Implemented user_login.html.
+-Implemented register_new_user.html.
 
 4/26/2025
 -Established GitHub repo.
