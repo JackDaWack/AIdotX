@@ -58,5 +58,7 @@ class ai_player
     void move_to();
     //ai considers its options.
     void think();
+    void determine_candidates();
+    void get_players_options();
 };
 
