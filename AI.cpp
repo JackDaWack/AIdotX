@@ -1,4 +1,7 @@
 #include <vector>
+#include "stdio.h"
 using namespace std;
 
-int main(){}
+int main(){
+    printf("Hello, world!");
+}
