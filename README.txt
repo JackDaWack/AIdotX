@@ -6,6 +6,10 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Implemented move_to in ai class.
 -Began think implementation in ai class.
 -Began implementation for determine_candidates in ai class.
+-Implemented is_valid_space to check a board space's availability.
+-Began implementation of get_surrounding_spaces to get all immediate surrounding spaces of a mark.
+-Added curr_positions to ai class to track the locations of its marks on the board.
+-Moved method locations in ai class.
 
 4/28/2025
 -Implemented base file.
