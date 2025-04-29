@@ -117,10 +117,18 @@ class ai_player
         if (candidates.empty()){candidates = possible_moves;}
         return candidates;
     }
-    void get_players_options();
-    void think(bool first_move){
+    vector<vector<int>> get_players_options();
+    //ai considers its options. 
+    //The ai will consider the options it has for its next move compared to the player's.
+    //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
+    //The ai will pick one of the spaces that both the player and itself could move to.
+    void think_and_act(bool first_move){
         if (first_move){move_to(rand()%3,rand()%3);}
-        else{}
+        else{
+            vector<vector<int>> best_options = determine_candidates();
+            int decided_move = rand()%best_options.size();
+            move_to(best_options.at(decided_move).at(0),best_options.at(decided_move).at(1));
+        }
     }
     
 };

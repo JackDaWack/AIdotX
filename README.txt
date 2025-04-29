@@ -12,6 +12,10 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Moved method locations in ai class.
 -Finished get_surrounding_spaces implementation.
 -Finished implementation of determine_candidates.
+-Edited get_player_options method. May consider scrapping it.
+-Moved explanation comments.
+-Changed think function to think_and_act.
+-Implemented think_and_act.
 
 4/28/2025
 -Implemented base file.
