@@ -10,6 +10,8 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Began implementation of get_surrounding_spaces to get all immediate surrounding spaces of a mark.
 -Added curr_positions to ai class to track the locations of its marks on the board.
 -Moved method locations in ai class.
+-Finished get_surrounding_spaces implementation.
+-Finished implementation of determine_candidates.
 
 4/28/2025
 -Implemented base file.
