@@ -1,4 +1,5 @@
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -49,19 +50,31 @@ public:
 class ai_player
 {
     private:
-    //data
+    game_board * board;
+
     public:
-    ai_player();
+    ai_player(game_board * game){
+        board = game;
+    }
     ~ai_player();
 
     //ai marks a spot on the gameboard as an 'X'.
-    void move_to();
+    void move_to(int row, int col){
+        board->set_at_position(row,col,'X');
+    }
     //ai considers its options. 
     //The ai will consider the options it has for its next move compared to the player's.
     //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
     //The ai will pick one of the spaces that both the player and itself could move to.
-    void think();
-    void determine_candidates();
+    void think(bool first_move){
+        if (first_move){move_to(rand()%3,rand()%3);}
+        else{}
+    }
+    vector<vector<int>> determine_candidates(){
+        vector<vector<int>> possible_moves;
+
+        return possible_moves;
+    }
     void get_players_options();
 };
 
