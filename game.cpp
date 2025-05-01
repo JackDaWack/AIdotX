@@ -1,5 +1,6 @@
 #include <vector>
 #include <random>
+#include "stdio.h"
 
 using namespace std;
 
@@ -19,6 +20,7 @@ public:
     ~game_board();
     
     //victory checker methods
+
     bool check_rows(char player){
         for (int i = 0; i < 3; i++){
             if (board->at(i).at(0) == player && board->at(i).at(1) == player && board->at(i).at(2) == player) {return true;}
@@ -66,7 +68,19 @@ public:
         if(is_valid_space(i,j)){spaces.push_back({i,j});}
         return spaces;
     }
+    //Board representation method.
+    void draw_board(){
+        for (int i = 0; i < 3; i++){
+            printf("|");
+            for (int j = 0; j < 3; j++){
+                printf("%c|",board->at(i).at(j));
+            }
+            printf("\n-------");
+        }
+    }
+
     //getters and setters
+
     vector<vector<char>> * get_board(){return board;}
     void set_board(vector<vector<char>> * new_board){board = new_board;}
     char get_at_position(int i, int j){return board->at(i).at(j);}
