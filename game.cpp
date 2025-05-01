@@ -73,6 +73,24 @@ public:
     void set_at_position(int i, int j, char mark){board->at(i).at(j) = mark;}
 };
 
+class player
+{
+    private:
+    game_board * board;
+    vector<vector<int>> * curr_positions;
+
+    public:
+    player(game_board * game){
+        board = game;
+    }
+    ~player();
+
+    void move_to(int row, int col){
+        board->set_at_position(row,col,'O');
+        curr_positions->push_back({row,col});
+    }
+};
+
 class ai_player
 {
     private:

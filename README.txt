@@ -1,6 +1,9 @@
 AIdotX
 Goal: Create web application that plays tick-tack-toe with an AI, and keeps track of scores through user accounts.
 
+5/1/2025
+-Implemented basic player class.
+
 4/29/2025
 -Began ai implementation.
 -Implemented move_to in ai class.
