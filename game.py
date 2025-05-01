@@ -12,7 +12,11 @@ bp = Blueprint('jokes', __name__)
 @login_required
 def index():
     if g.user:
-        return redirect(url_for('game.play'))
+        return redirect(url_for('game.options'))
     flash("Access denied for non-users.")
     return redirect(url_for('auth.user_login'))
 
+def play():
+    return render_template(url_for('game.play'))
+
+#def update():

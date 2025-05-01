@@ -3,6 +3,6 @@
 {% block header %}
   <h1>{% block title %}Game{% endblock %}</h1>
   {% if g.user %}
-    <a class="action" href="{{ url_for('game.play') }}">New Game</a>
+    <a class="action" href="{{ url_for('game.options') }}">New Game</a>
   {% endif %}
 {% endblock %}
