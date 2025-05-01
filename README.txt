@@ -4,6 +4,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 5/1/2025
 -Implemented basic player class.
 -Implemented draw_board function for game_board class.
+-Created test file to test the game functions.
 
 4/29/2025
 -Began ai implementation.
