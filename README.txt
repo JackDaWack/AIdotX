@@ -8,6 +8,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Created Options.html to show gameplay options to player.
 -Began implementation of game.play in game.py.
 -Began Options.html implementation.
+-Began play.html implementation.
 
 4/29/2025
 -Began ai implementation.
