@@ -49,26 +49,26 @@ public:
         return false;
     }
     vector<vector<int>> get_surrounding_spaces(int row, int col, char player){
-        vector<vector<int>> spaces;
+        vector<vector<int>> * spaces = new vector<vector<int>>(10, vector<int>(2)); 
         int i = row;
         int j = col;
         i--;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         j++;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         i++;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         i++;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         j--;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         j--;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         i--;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
         i--;
-        if(is_valid_space(i,j)){spaces.push_back({i,j});}
-        return spaces;
+        if(is_valid_space(i,j)){spaces->push_back({i,j});}
+        return *spaces;
     }
     //Board representation method.
     void draw_board(){
@@ -129,27 +129,27 @@ class ai_player
     //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
     //The ai will pick one of the spaces that both the player and itself could move to.
     vector<vector<int>> determine_candidates(){
-        vector<vector<int>> possible_moves;
+        vector<vector<int>> * possible_moves = new vector<vector<int>>(10, vector<int>(2)); 
         for (int i = 0; i < curr_positions->size(); i++){
             vector<vector<int>> temp = board->get_surrounding_spaces(curr_positions->at(i).at(0),curr_positions->at(i).at(1),'X');
-            for (int j = 0; j < temp.size(); i++){possible_moves.push_back(temp.at(j));}
+            for (int j = 0; j < temp.size(); i++){possible_moves->push_back(temp.at(j));}
         }
-        vector<vector<int>> candidates;
+        vector<vector<int>> * candidates = new vector<vector<int>>(10, vector<int>(2));
         bool has_dup = false;
         //find all duplicate moves.
-        for (int i = 0; i < possible_moves.size(); i++){
+        for (int i = 0; i < possible_moves->size(); i++){
             has_dup = false;
-            for (int j = 0; j < possible_moves.size(); j++){
-                if (possible_moves.at(i).at(0) == possible_moves.at(j).at(0) && possible_moves.at(i).at(0) == possible_moves.at(j).at(0)){
+            for (int j = 0; j < possible_moves->size(); j++){
+                if (possible_moves->at(i).at(0) == possible_moves->at(j).at(0) && possible_moves->at(i).at(0) == possible_moves->at(j).at(0)){
                     if (!has_dup){
                         has_dup = !has_dup;
-                        candidates.push_back(possible_moves.at(i));
+                        candidates->push_back(possible_moves->at(i));
                     }
                 }
             }
         }
-        if (candidates.empty()){candidates = possible_moves;}
-        return candidates;
+        if (candidates->empty()){candidates = possible_moves;}
+        return *candidates;
     }
     vector<vector<int>> get_players_options();
     //ai considers its options. 
