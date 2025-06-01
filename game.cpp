@@ -111,7 +111,7 @@ class ai_player
 {
     private:
     game_board * board;
-    vector<vector<int>> * curr_positions;
+    vector<vector<int>> * curr_positions = new vector<vector<int>>(10, vector<int>(2));
 
     public:
     ai_player(game_board * game){
@@ -169,11 +169,16 @@ class ai_player
 
 //main function for testing the basic game functions.
 int main(){
-    printf("Hello, world!\n");
+    printf("Hello, world!\nTesting board inititialization...\n");
     game_board* board = new game_board();
     board->draw_board();
+    printf("Testing ai_player inititialization...\n");
     ai_player* albert = new ai_player(board);
+    printf("Testing player inititialization...\n");
     player* myself = new player(board);
+    printf("Testing ai_player methods...\n");
+    albert->move_to(1,1);
+    board->draw_board();
     
     return 0;
 };

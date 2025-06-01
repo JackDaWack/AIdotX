@@ -9,6 +9,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Fixed draw_board issues.
 -Tested ai_player initialization.
 -Tested player initialization.
+-Modified curr_positions initialization.
 
 5/19/2025
 -Removed game_test.cpp
