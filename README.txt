@@ -5,6 +5,10 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Modified Main function for testing.
 -Modified get_surrounding_spaces in game_board class.
 -Attempting to test gameboard drawing method.
+-Modified game_board initialization.
+-Fixed draw_board issues.
+-Tested ai_player initialization.
+-Tested player initialization.
 
 5/19/2025
 -Removed game_test.cpp

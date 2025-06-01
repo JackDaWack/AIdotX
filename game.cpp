@@ -7,10 +7,11 @@ using namespace std;
 class game_board
 {
 private:
-    vector<vector<char>> * board; 
+    vector<vector<char>>* board = new vector<vector<char>>(3, vector<char>(3, '.')); 
 public:
     game_board(){
         //Gameboard initialization.
+    
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 3; j++){
                 board->at(i).at(j) = '#';
@@ -76,7 +77,7 @@ public:
             for (int j = 0; j < 3; j++){
                 printf("%c|",board->at(i).at(j));
             }
-            printf("\n-------");
+            printf("\n+-+-+-+\n");
         }
     }
 
@@ -171,6 +172,8 @@ int main(){
     printf("Hello, world!\n");
     game_board* board = new game_board();
     board->draw_board();
+    ai_player* albert = new ai_player(board);
+    player* myself = new player(board);
     
     return 0;
-}
+};
