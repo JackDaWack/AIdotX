@@ -12,6 +12,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Modified curr_positions initialization.
 -Experiencing issue with the think_and_act method.
 -Made corrections to the helper function determine_candidates and other functions it depends on.
+-think_and_act is now functional, however, its ability to make random choices is questionable.
 
 5/19/2025
 -Removed game_test.cpp

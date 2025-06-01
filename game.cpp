@@ -44,12 +44,12 @@ public:
         return false;
     }
     bool is_valid_space(int row, int col){
-        if (row > 2 || col > 2){return false;}
+        if ((row > 2 || col > 2) || (row < 0 || col < 0)){return false;}
         if (board->at(row).at(col) == '#'){return true;}
         return false;
     }
     vector<vector<int>> get_surrounding_spaces(int row, int col, char player){
-        vector<vector<int>> * spaces = new vector<vector<int>>(10, vector<int>(2)); 
+        vector<vector<int>> * spaces = new vector<vector<int>>(9, vector<int>(2)); 
         int i = row;
         int j = col;
         i--;
@@ -132,7 +132,7 @@ class ai_player
         vector<vector<int>> * possible_moves = new vector<vector<int>>(10, vector<int>(2)); 
         for (int i = 0; i < curr_positions->size(); i++){
             vector<vector<int>> temp = board->get_surrounding_spaces(curr_positions->at(i).at(0),curr_positions->at(i).at(1),'X');
-            for (int j = 0; j < temp.size(); i++){possible_moves->push_back(temp.at(j));}
+            for (int j = 0; j < temp.size(); j++){possible_moves->push_back(temp.at(j));}
         }
         vector<vector<int>> * candidates = new vector<vector<int>>(10, vector<int>(2));
         bool has_dup = false;
@@ -151,7 +151,6 @@ class ai_player
         if (candidates->empty()){candidates = possible_moves;}
         return *candidates;
     }
-    vector<vector<int>> get_players_options();
     //ai considers its options. 
     //The ai will consider the options it has for its next move compared to the player's.
     //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
@@ -159,9 +158,10 @@ class ai_player
     void think_and_act(bool first_move){
         if (first_move){move_to(rand()%3,rand()%3);}
         else{
-            vector<vector<int>> best_options = determine_candidates();
-            int decided_move = rand()%best_options.size();
-            move_to(best_options.at(decided_move).at(0),best_options.at(decided_move).at(1));
+            vector<vector<int>> * best_options = new vector<vector<int>>(10, vector<int>(2));
+            *best_options = determine_candidates();
+            int decided_move = rand()%best_options->size();
+            move_to(best_options->at(decided_move).at(0),best_options->at(decided_move).at(1));
         }
     }
     
@@ -177,10 +177,20 @@ int main(){
     printf("Testing player inititialization...\n");
     player* myself = new player(board);
     printf("Testing ai_player methods...\n");
-    albert->move_to(1,1);
+    printf("...\n");
+    albert->think_and_act(true);
     board->draw_board();
+    printf("...\n");
+    //myself->move_to(1,1);
     albert->think_and_act(false);
     board->draw_board();
+    printf("...\n");
+    albert->think_and_act(false);
+    board->draw_board();
+
+
+
+
     
     return 0;
 };
