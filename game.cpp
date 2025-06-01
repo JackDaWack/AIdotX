@@ -179,6 +179,8 @@ int main(){
     printf("Testing ai_player methods...\n");
     albert->move_to(1,1);
     board->draw_board();
+    albert->think_and_act(false);
+    board->draw_board();
     
     return 0;
 };
