@@ -1,6 +1,15 @@
 AIdotX
 Goal: Create web application that plays tick-tack-toe with an AI, and keeps track of scores through user accounts.
 
+6/1/2025
+-Modified Main function for testing.
+-Modified get_surrounding_spaces in game_board class.
+-Attempting to test gameboard drawing method.
+
+5/19/2025
+-Removed game_test.cpp
+-Implemented main function for testing the game functionality.
+
 5/1/2025
 -Implemented basic player class.
 -Implemented draw_board function for game_board class.

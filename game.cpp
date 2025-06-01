@@ -49,7 +49,8 @@ public:
     }
     vector<vector<int>> get_surrounding_spaces(int row, int col, char player){
         vector<vector<int>> spaces;
-        int i,j = row,col;
+        int i = row;
+        int j = col;
         i--;
         if(is_valid_space(i,j)){spaces.push_back({i,j});}
         j++;
@@ -165,3 +166,11 @@ class ai_player
     
 };
 
+//main function for testing the basic game functions.
+int main(){
+    printf("Hello, world!\n");
+    game_board* board = new game_board();
+    board->draw_board();
+    
+    return 0;
+}
