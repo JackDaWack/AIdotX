@@ -5,6 +5,7 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 -Issues with randomness in think_and_act have been resolved, though it seems to exhibit no real strategy to win.
 -replaced get_surrounding_spaces with get_empty_neighbors.
 -AI now seems to slightly prefer moving to more immediate spaces, though there is variation to be tweeked.
+-Removed duplicate filtering from determine_candidates.
 
 6/1/2025
 -Modified Main function for testing.

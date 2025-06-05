@@ -126,20 +126,7 @@ class ai_player
             for (int j = 0; j < temp.size(); j++){possible_moves->push_back(temp.at(j));}
         }
         vector<vector<int>> * candidates = new vector<vector<int>>(10, vector<int>(2));
-        bool has_dup = false;
-        //find all duplicate moves.
-        for (int i = 0; i < possible_moves->size(); i++){
-            has_dup = false;
-            for (int j = 0; j < possible_moves->size(); j++){
-                if (possible_moves->at(i).at(0) == possible_moves->at(j).at(0) && possible_moves->at(i).at(0) == possible_moves->at(j).at(0)){
-                    if (!has_dup){
-                        has_dup = !has_dup;
-                        candidates->push_back(possible_moves->at(i));
-                    }
-                }
-            }
-        }
-        if (candidates->empty()){candidates = possible_moves;}
+        candidates = possible_moves;
         return *candidates;
     }
     //ai considers its options. 
