@@ -50,28 +50,6 @@ public:
         if (board->at(row).at(col) == '#'){return true;}
         return false;
     }
-    vector<vector<int>> get_surrounding_spaces(int row, int col, char player){
-        vector<vector<int>> * spaces = new vector<vector<int>>(9, vector<int>(2)); 
-        int i = row;
-        int j = col;
-        i--;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        j++;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        i++;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        i++;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        j--;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        j--;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        i--;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        i--;
-        if(is_valid_space(i,j)){spaces->push_back({i,j});}
-        return *spaces;
-    }
     //Board representation method.
     void draw_board(){
         for (int i = 0; i < 3; i++){
@@ -130,10 +108,21 @@ class ai_player
     //The ai will consider the options it has for its next move compared to the player's.
     //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
     //The ai will pick one of the spaces that both the player and itself could move to.
+    vector<vector<int>> * get_empty_neighbors(vector<int> * position)
+    {
+        vector<vector<int>> * neighbors = new vector<vector<int>>(10, vector<int>(2));
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if ((i == position->at(0)-1 || i == position->at(0)+1) && board->get_at_position(i,j) == '#'){neighbors->push_back({i,j});}
+                if ((j == position->at(1)-1 || j == position->at(1)+1) && board->get_at_position(i,j) == '#'){neighbors->push_back({i,j});}
+            }
+        }
+        return neighbors;
+    }
     vector<vector<int>> determine_candidates(){
         vector<vector<int>> * possible_moves = new vector<vector<int>>(10, vector<int>(2)); 
         for (int i = 0; i < curr_positions->size(); i++){
-            vector<vector<int>> temp = board->get_surrounding_spaces(curr_positions->at(i).at(0),curr_positions->at(i).at(1),'X');
+            vector<vector<int>> temp = *get_empty_neighbors(&curr_positions->at(i));
             for (int j = 0; j < temp.size(); j++){possible_moves->push_back(temp.at(j));}
         }
         vector<vector<int>> * candidates = new vector<vector<int>>(10, vector<int>(2));
