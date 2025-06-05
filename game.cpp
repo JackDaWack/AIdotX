@@ -1,6 +1,8 @@
 #include <vector>
 #include <random>
+#include <ctime> 
 #include "stdio.h"
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -156,13 +158,28 @@ class ai_player
     //The ai will determine the next spaces it could move to as well as the next spaces the player could move to.
     //The ai will pick one of the spaces that both the player and itself could move to.
     void think_and_act(bool first_move){
-        if (first_move){move_to(rand()%3,rand()%3);}
+        int x;
+        int y;
+        if (first_move){
+            srand(time(0));
+            x = rand()%3;
+            y = rand()%3;
+        }
         else{
             vector<vector<int>> * best_options = new vector<vector<int>>(10, vector<int>(2));
             *best_options = determine_candidates();
-            int decided_move = rand()%best_options->size();
-            move_to(best_options->at(decided_move).at(0),best_options->at(decided_move).at(1));
+            bool thinking = true;
+            int decided_move;
+            while (thinking)
+            {
+              decided_move = rand()%best_options->size();
+              if (find(curr_positions->begin(), curr_positions->end(), best_options->at(decided_move)) == curr_positions->end()){thinking = false;}   
+            }
+            x = best_options->at(decided_move).at(0);
+            y = best_options->at(decided_move).at(1);
         }
+        curr_positions->push_back({x,y});
+        move_to(x,y);
     }
     
 };
@@ -181,7 +198,6 @@ int main(){
     albert->think_and_act(true);
     board->draw_board();
     printf("...\n");
-    //myself->move_to(1,1);
     albert->think_and_act(false);
     board->draw_board();
     printf("...\n");
