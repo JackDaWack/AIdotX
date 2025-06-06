@@ -1,6 +1,10 @@
 AIdotX
 Goal: Create web application that plays tick-tack-toe with an AI, and keeps track of scores through user accounts.
 
+6/6/2025
+-Beginning Player class testing.
+-fixed issues with scanf.
+
 6/5/2025
 -Issues with randomness in think_and_act have been resolved, though it seems to exhibit no real strategy to win.
 -replaced get_surrounding_spaces with get_empty_neighbors.

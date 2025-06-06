@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <random>
 #include <ctime> 
@@ -171,8 +172,17 @@ int main(){
     player* myself = new player(board);
     printf("Testing ai_player methods...\n");
     printf("...\n");
+    int x = 0;
+    int y = 0;
     albert->think_and_act(true);
     board->draw_board();
+    printf("Enter the x position: ");
+    fflush(stdout); 
+    scanf("%d", &x);
+    printf("...\n");
+    printf("Enter the y position: ");
+    fflush(stdout); 
+    scanf("%d", &y);
     printf("...\n");
     albert->think_and_act(false);
     board->draw_board();
@@ -180,9 +190,5 @@ int main(){
     albert->think_and_act(false);
     board->draw_board();
 
-
-
-
-    
     return 0;
 };
