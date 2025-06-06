@@ -4,6 +4,9 @@ Goal: Create web application that plays tick-tack-toe with an AI, and keeps trac
 6/6/2025
 -Beginning Player class testing.
 -fixed issues with scanf.
+-Player class's move_to method seems faulty.
+-commented out lines relating to player class's curr_positions vector.
+-Issues with player class's move_to resolved.
 
 6/5/2025
 -Issues with randomness in think_and_act have been resolved, though it seems to exhibit no real strategy to win.

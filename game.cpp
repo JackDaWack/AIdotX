@@ -74,7 +74,7 @@ class player
 {
     private:
     game_board * board;
-    vector<vector<int>> * curr_positions;
+    //vector<vector<int>> * curr_positions;
 
     public:
     player(game_board * game){
@@ -84,7 +84,7 @@ class player
 
     void move_to(int row, int col){
         board->set_at_position(row,col,'O');
-        curr_positions->push_back({row,col});
+        //curr_positions->push_back({row,col});
     }
 };
 
@@ -183,6 +183,7 @@ int main(){
     printf("Enter the y position: ");
     fflush(stdout); 
     scanf("%d", &y);
+    myself->move_to(x,y);
     printf("...\n");
     albert->think_and_act(false);
     board->draw_board();
